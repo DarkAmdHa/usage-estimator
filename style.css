@@ -1,11 +1,16 @@
+@import url("Industrial-Regular.ttf");
+@import url("Industrial-Bold.otf");
+
 @font-face {
-  font-family: Industrial;
+  font-family: "Industrial";
+  font-weight: normal;
   src: url("Industrial-Regular.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: Industrial;
+  font-family: "Industry";
   font-weight: bold;
-  src: url("Industrial-Bold.otf") format("opentype");
+  src: url("Industrial-Bold.otf");
 }
 
 body {
