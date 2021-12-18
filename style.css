@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Industrial;
+  src: url("Industrial-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Industrial;
+  font-weight: bold;
+  src: url("Industrial-Bold.otf") format("opentype");
+}
+
 body {
   background-color: black;
   color: #fff;
