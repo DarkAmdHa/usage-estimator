@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage Estimator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="usage-estimator">
+        <div class="container">
+            <h1 class='usage-estimator-heading'>Usage Estimator</h1>
+            <div class="estimator-container">
+                <form class="input-fields">
+                    <div class="veg-container">
+                        <h2 class='m-heading'>Veg Cycle</h2>
+                        <label for="veg-weeks" class='field-labels'>Weeks<span class='required-star'>*</span></label>
+                        <input type="text" required class='number-field' placeholder="Numbers only" id='veg-weeks'>
+                        <label for="veg-gallons-week" class='field-labels'>Gallons x Week<span class='required-star'>*</span></label>
+                        <input type="text" required class='number-field' placeholder="Numbers only" id='veg-gallons-week'>
+                    </div>
+                    <div class="flow-container">
+                        <h2 class='m-heading'>Flower Cycle</h2>
+                        <label for="flow-weeks" class='field-labels'>Weeks<span class='required-star'>*</span></label>
+                        <input type="text" required class='number-field' placeholder="Numbers only" id='flow-weeks'>
+                        <label for="flow-gallons-week" class='field-labels'>Gallons x Week<span class='required-star'>*</span></label>
+                        <input type="text" required class='number-field' placeholder="Numbers only" id='flow-gallons-week'>
+                    </div>
+                    <button type='submit' id='caluclateBtn' class='btn'>Calculate</button>
+                </form>
+                <div class="results">
+                    <div class="top">
+                        <h2 class="m-heading">Results</h2>
+                        <a href="#" id='clear-results'>Clear Results</a>
+
+                    </div>
+                    <ul class="results-list">
+                        <li class="part-a">
+                            <a target="_blank" href="https://craft-farmer.com/products/front-row-ag-soft-part-a" class="product-link">Part A</a>
+                            <p class="weight">5LB</p>    
+                            <div class="quantity">
+                                <p class='times-sign'>x</p>
+                                <p class="quantity-digit">2</p>
+                            </div>
+                        </li>
+                        <li class="part-b">
+                            <a target="_blank" href="https://craft-farmer.com/products/front-row-soft-part-b" class="product-link">Part B</a>
+                            <p class="weight">5LB</p>    
+                            <div class="quantity">
+                                <p class='times-sign'>x</p>
+                                <p class="quantity-digit">2</p>
+                            </div>
+                        </li>
+                        <li class="bloom">
+                            <a target="_blank" href="https://craft-farmer.com/products/front-row-ag-soft-bloom" class="product-link">Bloom</a>
+                            <p class="weight">5LB</p>    
+                            <div class="quantity">
+                                <p class='times-sign'>x</p>
+                                <p class="quantity-digit">2</p>
+                            </div>
+                        </li>
+                        <li class="bioflo">
+                            <a target="_blank" href="https://craft-farmer.com/products/bioflo-all-natural-irrigation-line-cleaner" class="product-link">Bioflo</a>
+                            <p class="weight">500mL</p>    
+                            <div class="quantity">
+                                <p class='times-sign'>x</p>
+                                <p class="quantity-digit">2</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='app.js'></script>
+</html>
