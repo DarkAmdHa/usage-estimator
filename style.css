@@ -1,88 +1,307 @@
-@import url("Industrial-Regular.ttf");
-@import url("Industrial-Bold.otf");
-
-@font-face {
-  font-family: "Industrial";
-  font-weight: normal;
-  src: url("Industrial-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Industry";
-  font-weight: bold;
-  src: url("Industrial-Bold.otf");
-}
-
 body {
-  background-color: black;
+  background-color: #272727;
   color: #fff;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
-}
-
-#usage-estimator h1 {
-  font-family: "Industrial", "Times New Roman", Times, serif;
-  margin-bottom: 20px;
-}
-.m-heading {
-  font-size: 1.8rem;
-  font-weight: bolder;
-  height: 20px;
 }
 
 #usage-estimator {
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: auto;
+  text-align:center;
+  color: #AAAAAA;
+
 }
+
+#usage-estimator h2 {
+  font-family: "Industrial", "Times New Roman", Times, serif;
+  margin: 10px 0 30px 0;
+}
+
 #usage-estimator .container {
   display: flex;
   flex-direction: column;
   height: 80%;
 }
 .usage-estimator-heading {
-  font-size: 2.8rem;
+  font-size: 2.3rem;
   text-transform: uppercase;
 }
+
 .estimator-container {
   display: flex;
   width: 80vw;
-  max-width: 700px;
-}
-.estimator-container .input-fields {
-  width: 100%;
+  max-width: 450px;
+  gap:20px;
+  transition: max-width 1s ease;
 }
 
+.estimator-container.show {
+  max-width: 900px;
+}
+
+.estimator-container .input-fields,
+.estimator-container .results{
+  border: 1px solid #707070;
+  border-radius: 25px;
+  padding: 0 12px;
+}
+
+
+
+#usage-estimator .veg-container,
+#usage-estimator .flow-container
+{
+  border: 1px solid #707070;
+  border-radius: 25px;
+  padding: 20px;
+}
+#usage-estimator .flow-container{
+  margin-top: 20px;
+}
+
+#usage-estimator .water-usage-input{
+  display: flex;
+  align-items: center;
+  background-color: #2E2E2E;
+  border: 1px solid #707070;
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+#usage-estimator .water-usage-input input[type='text']{
+  border: none;
+  background-color: transparent;
+  color: #AAAAAA;
+
+}
+
+#usage-estimator .input-group{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#usage-estimator .input-group ul{
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.water-buttons-group a{
+  text-decoration: none;
+  color: #FF0000;
+  transition: color 0.5s ease
+}
+
+.water-buttons-group a:hover{
+  color: #c70505;
+
+}
+.water-buttons-group svg{
+  width: 15px;
+  pointer-events: none;
+}
+
+.water-buttons-group svg path{
+  pointer-events: none;
+}
+.water-buttons-group .veg-water-increment svg,
+.water-buttons-group .flow-water-increment svg{
+  margin-bottom: -8px;
+}
+.water-buttons-group .veg-water-substraction svg,
+.water-buttons-group .flow-water-substraction svg
+{
+  margin-top: -8px;
+}
+
+.input-group ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0 40px;
+  box-sizing: border-box;
+}
+.input-group li{
+  box-sizing: border-box;
+
+  position: relative;
+  background: #2E2E2E;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 19px;
+  border: 1px #707070 solid;
+  transition: 0.3s;
+  margin: 0 5px;
+}
+
+.input-group li input[type='radio']{
+  opacity: 0;
+}
+
+
+
+.input-group li label {
+  position: absolute;
+  width:40px;
+  height:40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  border-radius: 7px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.selector-label,
+.water-input-label{
+  font-size:14px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.input-group{
+  margin-bottom: 20px;
+}
 .estimator-container .input-fields label {
   margin-bottom: 3px !important;
   font-weight: bold;
   font-size: 18px;
 }
 
+.veg-radio:checked ~ label,
+.flow-radio:checked ~ label
+{
+  background: #fff !important;
+  color: #333;
+}
+
 .estimator-container .input-fields input {
-  margin-bottom: 6px !important;
   width: 85%;
   height: 35px;
   outline: none;
-  font-size: 16px;
-  font-weight: 100;
+  font-size: 18px;
+  font-weight: 500;
   font-family: inherit;
 }
 .estimator-container .results {
-  width: 100%;
-  padding-left: 6%;
-  border-left: 2px solid white;
-  visibility: hidden;
-  transform: translate(-100px, 0);
+  transform: translate(0, -100px);
   opacity: 0;
-  pointer-events: none;
+  display: none;
   transition: all 1s ease-in-out;
 }
+
 .estimator-container .results.show {
   transform: none;
   opacity: 1;
-  pointer-events: visible;
+}
+
+.estimator-container .results table{
+  width: 100%;
+  border-collapse: separate; 
+  border-spacing: 0 5px; 
+  margin-top: -10px; /* correct offset on first border spacing if desired */
+}
+
+#a-b-bloom-cleanup{
+  margin-bottom: 10px;
+  border-spacing: 0;
+  margin-top: -32px;
+}
+
+#front-row-si{
+  margin-top: -5px;
+}
+
+#triologic{
+  margin-top: 0px;
+}
+#a-b-bloom-cleanup thead td{
+  height: 30px;
+}
+
+.estimator-container .results table tbody tr:not(.spacer) td{
+  border-top: 1px solid gray;
+  border-bottom:1px solid gray ;
+  height: 45px;
+}
+.estimator-container .results table tbody tr:not(.spacer) td:first-child{
+  border-left-style: solid;
+  border-top-left-radius: 20px; 
+  border-bottom-left-radius: 20px;
+  border-width: 1px;
+  width: 100px;
+}
+.estimator-container .results table thead{
+  font-size: 14px;
+}
+.estimator-container .results table tbody tr:not(.spacer) td:nth-child(2){
+  width: 120px;
+}
+
+.estimator-container .results table tbody tr:not(.spacer) td:nth-child(3){
+  font-size: 13px;
+  width: 30px;
+}
+
+.estimator-container .results table tbody tr:not(.spacer) td:nth-child(4){
+  width: 50px;
+}
+
+.estimator-container .results table tbody tr:not(.spacer) td:nth-child(4),
+.estimator-container .results table tbody tr:not(.spacer) td:nth-child(5),
+.estimator-container .results table tbody tr:not(.spacer) td:nth-child(6)
+{
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Montserrat';
+}
+
+.estimator-container .results table tbody tr:not(.spacer) td:nth-child(5){
+  width: 40px;
+}
+
+
+.estimator-container .results table tbody tr:not(.spacer) td:last-child {
+  border-right-style: solid;
+  border-bottom-right-radius: 20px; 
+  border-top-right-radius: 20px; 
+  border-width: 1px;
+}
+.estimator-container .results table tbody tr.spacer{
+  height: 7px;
+}
+
+.product-name{
+  font-size: 23px;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  font-family: 'Industrial', sans-serif;
+  text-transform: uppercase;
+}
+
+#front-row-si .product-name{
+  font-size: 16px;
+}
+
+#front-row-si .product-name .lowercase{
+  text-transform: lowercase;
+}
+
+#triologic .product-name{
+  font-size: 19px;
 }
 .veg-container,
 .flow-container {
@@ -94,21 +313,6 @@ body {
   margin-bottom: 20px;
 }
 
-.results .top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.results .top #clear-results {
-  margin-top: 16px;
-  text-decoration: none;
-  color: #555;
-  transition: color 0.5s ease;
-}
-.results .top #clear-results:hover {
-  color: #eee;
-}
 
 .results-list {
   padding-left: 0;
@@ -151,20 +355,28 @@ body {
   width: 3rem;
 }
 
-#caluclateBtn {
-  border: 2px solid #fff;
+.btn {
+  border: 2px solid transparent;
   font-family: "Industrial", Arial;
   text-transform: uppercase;
   font-size: 30px;
-  border-radius: 50px;
-  background-color: transparent;
-  color: inherit;
+  font-weight: bold;
+  border-radius: 20px;
+  background-color: #7C0000;
+  color: #fff;
   padding: 7px 30px;
   cursor: pointer;
   transition: all 0.8s ease;
   margin-top: 20px;
+  width: 100%;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
 }
-#caluclateBtn:hover {
+
+.results .btn{
+  margin-top: 25px;
+}
+.btn:hover {
   background-color: white;
   color: black;
 }
