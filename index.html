@@ -13,32 +13,224 @@
 <body>
     <div id="usage-estimator">
         <div class="container">
-            <h1 class='usage-estimator-heading'>Usage Estimator</h1>
             <div class="estimator-container">
                 <form class="input-fields">
+                    <h2 class='usage-estimator-heading'>Usage Estimator</h2>
                     <div class="veg-container">
-                        <h2 class='m-heading'>Veg Cycle</h2>
-                        <label for="veg-weeks" class='field-labels'>Weeks<span class='required-star'>*</span></label>
-                        <input type="text" required class='number-field' placeholder="Numbers only" id='veg-weeks'>
-                        <label for="veg-gallons-week" class='field-labels'>Gallons x Week<span class='required-star'>*</span></label>
-                        <input type="text" required class='number-field' placeholder="Numbers only" id='veg-gallons-week'>
+                        <div class='selector-label'>Veg: Number of Weeks</div>
+                        <div class="input-group veg-selector">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="veg-week-selector" id="veg0" class="veg-radio" value="0" required>
+                                    <label for="veg0">0</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="veg-week-selector" id="veg1" class="veg-radio" value="1">
+                                    <label for="veg1">1</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="veg-week-selector" id="veg2" class="veg-radio" value="2">
+                                    <label for="veg2">2</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="veg-week-selector" id="veg3" class="veg-radio" value="3" checked>
+                                    <label for="veg3">3</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="veg-week-selector" id="veg4" class="veg-radio" value="4">
+                                    <label for="veg4">4</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="veg-week-selector" id="veg5" class="veg-radio" value="5">
+                                    <label for="veg5">5</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="veg-week-selector" id="veg6" class="veg-radio" value="6">
+                                    <label for="veg6">6</label>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                        <div class='water-input-label'>Weekly Water Usage During Veg</div>
+                        <div class="water-usage-input">
+                            <input type="text" required class='number-field' placeholder="Numbers only" id='veg-gallons-week'>
+                            <div class="unit">Gallons</div>
+                            <div class="water-buttons-group">
+                                <a href="#" class="veg-water-increment">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <path fill="currentColor" d="M 25 13 L 4 35 L 46 35 L 25 13 z"/>
+                                </svg></a>
+                                <a href="#" class="veg-water-substraction">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <path fill="currentColor" d="M 4 17 L 25 39 L 46 17 L 4 17 z"/>
+                                </svg></a>
+
+                            </div>
+                        </div>
                     </div>
+
                     <div class="flow-container">
-                        <h2 class='m-heading'>Flower Cycle</h2>
-                        <label for="flow-weeks" class='field-labels'>Weeks<span class='required-star'>*</span></label>
-                        <input type="text" required class='number-field' placeholder="Numbers only" id='flow-weeks'>
-                        <label for="flow-gallons-week" class='field-labels'>Gallons x Week<span class='required-star'>*</span></label>
-                        <input type="text" required class='number-field' placeholder="Numbers only" id='flow-gallons-week'>
+                        <div class='selector-label'>Flower: Number of Weeks</div>
+                        <div class="input-group flow-selector">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="flow-week-selector" checked="false" id="flow6" class="flow-radio" value="6" required>
+                                    <label for="flow6">6</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="flow-week-selector" id="flow7" class="flow-radio" value="7">
+                                    <label for="flow7">7</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="flow-week-selector" checked id="flow8" class="flow-radio" value="8">
+                                    <label for="flow8">8</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="flow-week-selector" id="flow9" class="flow-radio" value="9">
+                                    <label for="flow9">9</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="flow-week-selector" id="flow10" class="flow-radio" value="10">
+                                    <label for="flow10">10</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="flow-week-selector" id="flow11" class="flow-radio" value="11">
+                                    <label for="flow11">11</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="flow-week-selector" id="flow12" class="flow-radio" value="12">
+                                    <label for="flow12">12</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='water-input-label'>Weekly Water Usage during Flower</div>
+                        <div class="water-usage-input">
+                            <input type="text" required class='number-field' placeholder="Numbers only" id='flow-gallons-week'>
+                            <div class="unit">Gallons</div>
+                            <div class="water-buttons-group">
+                                <a href="#" class="flow-water-increment">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <path fill="currentColor" d="M 25 13 L 4 35 L 46 35 L 25 13 z"/>
+                                </svg></a>
+                                <a href="#" class="flow-water-substraction">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <path fill="currentColor" d="M 4 17 L 25 39 L 46 17 L 4 17 z"/>
+                                </svg></a>
+
+                            </div>
+                        </div>
                     </div>
                     <button type='submit' id='caluclateBtn' class='btn'>Calculate</button>
                 </form>
                 <div class="results">
-                    <div class="top">
-                        <h2 class="m-heading">Results</h2>
-                        <a href="#" id='clear-results'>Clear Results</a>
+                    <h2 class='usage-estimator-heading'>Buy these amounts</h2>
+                    <table id="a-b-bloom-cleanup">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>You Use</td>
+                                <td></td>
+                                <td class="sign-spacer"></td>
+                                <td>5LB</td>
+                                <td>25LB</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="partARow gram">
+                                <td class="product-name">Part A</td>
+                                <td class="weight-quantity">11330g</td>
+                                <td>&lt;</td>
+                                <td class="sign-spacer"></td>
+                                <td class="quantity1">0</td>
+                                <td class="quantity2">1</td>
+                            </tr>
+                            <tr class="spacer">
+                                <td></td>
+                            </tr>
+                            <tr class="partBRow gram">
+                                <td class="product-name">Part B</td>
+                                <td class="weight-quantity">11330g</td>
+                                <td>&lt;</td>
+                                <td class="sign-spacer"></td>
+                                <td class="quantity1">0</td>
+                                <td class="quantity2">1</td>
+                            </tr>
+                            <tr class="spacer">
+                                <td></td>
+                            </tr>
+                            <tr class="bloomRow gram">
+                                <td class="product-name">Bloom</td>
+                                <td class="weight-quantity">11330g</td>
+                                <td>&lt;</td>
+                                <td class="sign-spacer"></td>
+                                <td class="quantity1">0</td>
+                                <td class="quantity2">1</td>
+                            </tr>
+                            <tr class="spacer">
+                                <td></td>
+                            </tr>
+                            <tr class="cleanUpRow gram">
+                                <td class="product-name">Clean Up</td>
+                                <td class="weight-quantity">11330g</td>
+                                <td>&lt;</td>
+                                <td class="sign-spacer"></td>
+                                <td class="quantity1">0</td>
+                                <td class="quantity2">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                    </div>
-                    <ul class="results-list">
+                    <table id="front-row-si">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="sign-spacer"></td>
+                                <td>QT</td>
+                                <td>GAL</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="frontRowSiRow quart">
+                                <td class="product-name">Front Row S<span class='lowercase'>i</span></td>
+                                <td class="weight-quantity">3785mL</td>
+                                <td>&lt;</td>
+                                <td class="sign-spacer"></td>
+                                <td class="quantity1">0</td>
+                                <td class="quantity2">1</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+
+                    <table id="triologic">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mL</td>
+                                <td>1G</td>
+                                <td>2.5G</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="triologicRow ml">
+                                <td class="product-name">Triologic</td>
+                                <td class="weight-quantity">3785mL</td>
+                                <td>&lt;</td>
+                                <td class="quantity1">0</td>
+                                <td class="quantity2">1</td>
+                                <td class="quantity3">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button id='add-all-to-cart' class='btn'>Add All to Cart</button>
+
+
+                    <!-- <ul class="results-list">
                         <li class="part-a">
                             <a target="_blank" href="https://craft-farmer.com/products/front-row-ag-soft-part-a" class="product-link">Part A</a>
                             <p class="weight">5LB</p>    
@@ -71,7 +263,7 @@
                                 <p class="quantity-digit">2</p>
                             </div>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
