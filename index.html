@@ -11,7 +11,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="usage-estimator">
+    <div class="main-content">
+        <a href="#" id="modalOpen">Click here to open the modal</a>
+    </div>
+    <div id="usage-estimator" class="usage-estimator closed hidden">
+        <a href="#" id="modalClose">X</a>
+
         <div class="container">
             <div class="estimator-container">
                 <form class="input-fields">
@@ -21,31 +26,31 @@
                         <div class="input-group veg-selector">
                             <ul>
                                 <li>
-                                    <input type="radio" name="veg-week-selector" id="veg0" class="veg-radio" value="0" required>
+                                    <input type="radio" tabindex="-1" name="veg-week-selector" id="veg0" class="veg-radio" value="0" required>
                                     <label for="veg0">0</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="veg-week-selector" id="veg1" class="veg-radio" value="1">
+                                    <input type="radio" tabindex="-1" name="veg-week-selector" id="veg1" class="veg-radio" value="1">
                                     <label for="veg1">1</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="veg-week-selector" id="veg2" class="veg-radio" value="2">
+                                    <input type="radio" tabindex="-1" name="veg-week-selector" id="veg2" class="veg-radio" value="2">
                                     <label for="veg2">2</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="veg-week-selector" id="veg3" class="veg-radio" value="3" checked>
+                                    <input type="radio" tabindex="-1" name="veg-week-selector" id="veg3" class="veg-radio" value="3" checked>
                                     <label for="veg3">3</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="veg-week-selector" id="veg4" class="veg-radio" value="4">
+                                    <input type="radio" tabindex="-1" name="veg-week-selector" id="veg4" class="veg-radio" value="4">
                                     <label for="veg4">4</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="veg-week-selector" id="veg5" class="veg-radio" value="5">
+                                    <input type="radio" tabindex="-1" name="veg-week-selector" id="veg5" class="veg-radio" value="5">
                                     <label for="veg5">5</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="veg-week-selector" id="veg6" class="veg-radio" value="6">
+                                    <input type="radio" tabindex="-1" name="veg-week-selector" id="veg6" class="veg-radio" value="6">
                                     <label for="veg6">6</label>
                                 </li>
                             </ul>
@@ -57,11 +62,11 @@
                             <input type="text" required class='number-field' placeholder="Numbers only" id='veg-gallons-week'>
                             <div class="unit">Gallons</div>
                             <div class="water-buttons-group">
-                                <a href="#" class="veg-water-increment">
+                                <a href="#" class="veg-water-increment" tabindex="-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
                                     <path fill="currentColor" d="M 25 13 L 4 35 L 46 35 L 25 13 z"/>
                                 </svg></a>
-                                <a href="#" class="veg-water-substraction">
+                                <a href="#" class="veg-water-substraction" tabindex="-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
                                     <path fill="currentColor" d="M 4 17 L 25 39 L 46 17 L 4 17 z"/>
                                 </svg></a>
@@ -75,31 +80,31 @@
                         <div class="input-group flow-selector">
                             <ul>
                                 <li>
-                                    <input type="radio" name="flow-week-selector" checked="false" id="flow6" class="flow-radio" value="6" required>
+                                    <input type="radio" tabindex="-1" name="flow-week-selector" checked="false" id="flow6" class="flow-radio" value="6" required>
                                     <label for="flow6">6</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="flow-week-selector" id="flow7" class="flow-radio" value="7">
+                                    <input type="radio" tabindex="-1" name="flow-week-selector" id="flow7" class="flow-radio" value="7">
                                     <label for="flow7">7</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="flow-week-selector" checked id="flow8" class="flow-radio" value="8">
+                                    <input type="radio" tabindex="-1" name="flow-week-selector" checked id="flow8" class="flow-radio" value="8">
                                     <label for="flow8">8</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="flow-week-selector" id="flow9" class="flow-radio" value="9">
+                                    <input type="radio" tabindex="-1" name="flow-week-selector" id="flow9" class="flow-radio" value="9">
                                     <label for="flow9">9</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="flow-week-selector" id="flow10" class="flow-radio" value="10">
+                                    <input type="radio" tabindex="-1" name="flow-week-selector" id="flow10" class="flow-radio" value="10">
                                     <label for="flow10">10</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="flow-week-selector" id="flow11" class="flow-radio" value="11">
+                                    <input type="radio" tabindex="-1" name="flow-week-selector" id="flow11" class="flow-radio" value="11">
                                     <label for="flow11">11</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="flow-week-selector" id="flow12" class="flow-radio" value="12">
+                                    <input type="radio" tabindex="-1" name="flow-week-selector" id="flow12" class="flow-radio" value="12">
                                     <label for="flow12">12</label>
                                 </li>
                             </ul>
@@ -109,11 +114,11 @@
                             <input type="text" required class='number-field' placeholder="Numbers only" id='flow-gallons-week'>
                             <div class="unit">Gallons</div>
                             <div class="water-buttons-group">
-                                <a href="#" class="flow-water-increment">
+                                <a href="#" class="flow-water-increment" tabindex="-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
                                     <path fill="currentColor" d="M 25 13 L 4 35 L 46 35 L 25 13 z"/>
                                 </svg></a>
-                                <a href="#" class="flow-water-substraction">
+                                <a href="#" class="flow-water-substraction" tabindex="-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
                                     <path fill="currentColor" d="M 4 17 L 25 39 L 46 17 L 4 17 z"/>
                                 </svg></a>

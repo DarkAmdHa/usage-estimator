@@ -171,3 +171,64 @@ document.querySelector(".input-fields").addEventListener("submit", (e) => {
 });
 
 
+const openModalBtn = document.querySelector('#modalOpen');
+const closeModalBtn = document.querySelector('#modalClose');
+const usageEstimator = document.querySelector('#usage-estimator');
+const mainContent = document.querySelector('.main-content');
+const mainBody = document.querySelector('body');
+let animationInProgress = false,
+    modalOpen = false;
+
+const isChildOf = (element, parentToCheck)=>{
+  while(element != mainBody && element != document.querySelector('html')){
+    if(element === parentToCheck)
+      return true;
+    element = element.parentElement;
+  }
+  return false;
+}
+
+
+
+const openModal = ()=>{
+  if(!animationInProgress){
+    animationInProgress = true;
+    usageEstimator.classList.toggle('hidden');
+    setTimeout(() => {
+      usageEstimator.classList.toggle('closed');
+      mainContent.classList.toggle('modalOpened');
+      mainBody.classList.toggle('modalOpened');
+      animationInProgress = false;
+      modalOpen = true;
+      document.addEventListener('mousedown', e=>{
+        if(!isChildOf(e.target, usageEstimator) && modalOpen){
+          closeModal();
+        }
+      })
+    }, 10);
+  }
+}
+
+const closeModal = ()=>{
+  if(!animationInProgress){
+    animationInProgress = true;
+    usageEstimator.classList.toggle('closed');
+    mainContent.classList.toggle('modalOpened');
+    mainBody.classList.toggle('modalOpened');
+
+    setTimeout(() => {
+      usageEstimator.classList.toggle('hidden');
+      animationInProgress = false;
+      modalOpen = false;
+    }, 1000);
+  }
+}
+openModalBtn.addEventListener('click', e=>{
+  e.preventDefault();
+  openModal();
+})
+
+closeModalBtn.addEventListener('click', e=>{
+  e.preventDefault();
+  closeModal();
+})

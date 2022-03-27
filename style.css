@@ -1,19 +1,57 @@
 body {
-  background-color: #272727;
   color: #fff;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
 }
 
-#usage-estimator {
-  height: 100%;
+body.modalOpened{
+  overflow: hidden;
+}
+
+.main-content{
+  transition: all 0.5s ease;
+}
+
+
+.main-content.modalOpened{
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+#usage-estimator{
+  background-color: #272727;
+  width: 95vw;
+  height: 95vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
   text-align:center;
   color: #AAAAAA;
+  position: relative;
+  transition: all 0.75s ease-out;
+  border: 1px solid #707070;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  overflow: auto;
+}
+#usage-estimator.closed{
+  opacity: 0;
+  transform: scale(0);
+}
 
+#usage-estimator.hidden{
+  display: none;
+}
+#modalClose{
+  text-decoration: none;
+  font-size: 30px;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 15px;
+  right: 25px;
+  color: #707070
 }
 
 #usage-estimator h2 {
@@ -381,14 +419,19 @@ body {
   color: black;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 980px) {
+  .estimator-container{
+    width: 95vw;
+    width: 100%;
+  }
+}
+@media (max-width: 725px) {
   .estimator-container {
     flex-direction: column;
+    padding-bottom: 50px;
   }
   .estimator-container .results {
     padding-top: 1rem;
-    padding-left: 0;
-    border-left: none;
     transform: translate(0, -100px);
   }
 }
