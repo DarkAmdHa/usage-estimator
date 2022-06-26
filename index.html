@@ -21,7 +21,22 @@
             <div class="estimator-container">
                 <form class="input-fields">
                     <h2 class='usage-estimator-heading'>Usage Estimator</h2>
-                    <div class="veg-container">
+                    <div class="input-container veg-container">
+                        <div class='selector-label'>Feed EC</div>
+                        <div class="custom-input">
+                            <input type="text" required class='number-field' placeholder="Numbers only" id='ec-week-veg'>
+                            <div class="water-buttons-group">
+                                <a href="#" class="veg-water-increment" tabindex="-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <path fill="currentColor" d="M 25 13 L 4 35 L 46 35 L 25 13 z"/>
+                                </svg></a>
+                                <a href="#" class="veg-water-substraction" tabindex="-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <path fill="currentColor" d="M 4 17 L 25 39 L 46 17 L 4 17 z"/>
+                                </svg></a>
+
+                            </div>
+                        </div>
                         <div class='selector-label'>Veg: Number of Weeks</div>
                         <div class="input-group veg-selector">
                             <ul>
@@ -58,7 +73,7 @@
 
                         </div>
                         <div class='water-input-label'>Weekly Water Usage During Veg</div>
-                        <div class="water-usage-input">
+                        <div class="custom-input water-usage-input">
                             <input type="text" required class='number-field' placeholder="Numbers only" id='veg-gallons-week'>
                             <div class="unit">Gallons</div>
                             <div class="water-buttons-group">
@@ -75,7 +90,22 @@
                         </div>
                     </div>
 
-                    <div class="flow-container">
+                    <div class="input-container flow-container">
+                        <div class='selector-label'>Feed EC</div>
+                        <div class="custom-input">
+                            <input type="text" required class='number-field' placeholder="Numbers only" id='ec-week-flow'>
+                            <div class="water-buttons-group">
+                                <a href="#" class="veg-water-increment" tabindex="-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <path fill="currentColor" d="M 25 13 L 4 35 L 46 35 L 25 13 z"/>
+                                </svg></a>
+                                <a href="#" class="veg-water-substraction" tabindex="-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                    <path fill="currentColor" d="M 4 17 L 25 39 L 46 17 L 4 17 z"/>
+                                </svg></a>
+
+                            </div>
+                        </div>
                         <div class='selector-label'>Flower: Number of Weeks</div>
                         <div class="input-group flow-selector">
                             <ul>
@@ -110,7 +140,7 @@
                             </ul>
                         </div>
                         <div class='water-input-label'>Weekly Water Usage during Flower</div>
-                        <div class="water-usage-input">
+                        <div class="custom-input water-usage-input">
                             <input type="text" required class='number-field' placeholder="Numbers only" id='flow-gallons-week'>
                             <div class="unit">Gallons</div>
                             <div class="water-buttons-group">
@@ -126,6 +156,7 @@
                             </div>
                         </div>
                     </div>
+
                     <button type='submit' id='caluclateBtn' class='btn'>Calculate</button>
                 </form>
                 <div class="results">
