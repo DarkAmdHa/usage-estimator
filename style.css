@@ -56,7 +56,7 @@ body.modalOpened{
 
 #usage-estimator h2 {
   font-family: "Industrial", "Times New Roman", Times, serif;
-  margin: 10px 0 30px 0;
+  margin: 10px 0;
 }
 
 #usage-estimator .container {
@@ -89,19 +89,17 @@ body.modalOpened{
 }
 
 
-
-#usage-estimator .veg-container,
-#usage-estimator .flow-container
-{
+.input-container{
   border: 1px solid #707070;
   border-radius: 25px;
   padding: 20px;
 }
+
 #usage-estimator .flow-container{
   margin-top: 20px;
 }
 
-#usage-estimator .water-usage-input{
+#usage-estimator .custom-input{
   display: flex;
   align-items: center;
   background-color: #2E2E2E;
@@ -110,7 +108,7 @@ body.modalOpened{
   padding: 0 5px;
 }
 
-#usage-estimator .water-usage-input input[type='text']{
+#usage-estimator .custom-input  input[type='text']{
   border: none;
   background-color: transparent;
   color: #AAAAAA;
@@ -341,15 +339,22 @@ body.modalOpened{
 #triologic .product-name{
   font-size: 19px;
 }
-.veg-container,
-.flow-container {
+
+.input-container{
   display: flex;
   flex-direction: column;
 }
 
-.veg-container {
+.veg-container,.ec-container {
   margin-bottom: 20px;
 }
+
+.ec-container .water-buttons-group{
+  display: flex;
+  flex-direction: column;
+  margin-left: 22px;
+}
+
 
 
 .results-list {
