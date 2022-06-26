@@ -81,16 +81,46 @@ document.querySelectorAll('.flow-container .water-buttons-group a').forEach(butt
 document.querySelector(".input-fields").addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const ecVeg = +document.querySelector('#ec-week-veg').value;
+  const ecFlow = +document.querySelector('#ec-week-flow').value;
   const vegWeek = +document.querySelector('.veg-radio:checked').value;
   const vegWeeklyWater = +document.querySelector('#veg-gallons-week').value;
   const flowWeek = +document.querySelector('.flow-radio:checked').value;
   const flowWeeklyWater = +document.querySelector('#flow-gallons-week').value;
-  let partA = (vegWeek * vegWeeklyWater *4.06) + (flowWeek * flowWeeklyWater * 2.7),
-      partB = (vegWeek * vegWeeklyWater *2.73) + (flowWeek * flowWeeklyWater * 1.814),
-      bloom = (flowWeek * flowWeeklyWater * 2.1),
-      frontRowSi = (vegWeek*(0.5*vegWeeklyWater))+(flowWeek*(0.5*flowWeeklyWater)),
-      cleanUp = (vegWeek*(0.5*vegWeeklyWater))+(flowWeek*(0.5*flowWeeklyWater)),
-      triologic = (vegWeek*(0.5*vegWeeklyWater))+(flowWeek*(0.5*flowWeeklyWater));
+  let frontRowSiVegParam,frontRowSiFlowParam;
+  
+
+  
+  if(ecVeg>3.5){
+    frontRowSiVegParam = 0;
+  }else if(ecVeg===3.5){
+    frontRowSiVegParam = 0.125;
+  }else if(ecVeg>=2.7){
+    frontRowSiVegParam = 0.25;
+  }else if(ecVeg>=2.3){
+    frontRowSiVegParam = 0.333;
+  }else{
+    frontRowSiVegParam = 0.5;
+  }
+
+  if(ecFlow>3.5){
+    frontRowSiFlowParam = 0;
+  }else if(ecFlow===3.5){
+    frontRowSiFlowParam = 0.125;
+  }else if(ecFlow>=2.7){
+    frontRowSiFlowParam = 0.25;
+  }else if(ecFlow>=2.3){
+    frontRowSiFlowParam = 0.333;
+  }else{
+    frontRowSiFlowParam = 0.5;
+  }
+ 
+  let partA = (vegWeek * ecVeg *  vegWeeklyWater *2.033) + (flowWeek * ecFlow * flowWeeklyWater * 1.578),
+      partB = (vegWeek * ecVeg * vegWeeklyWater *1.355) + (flowWeek * ecFlow * flowWeeklyWater * 1.052),
+      bloom = (flowWeek * ecFlow * flowWeeklyWater * 1.242),
+      frontRowSi = (vegWeek*frontRowSiVegParam*vegWeeklyWater)+(flowWeek*frontRowSiFlowParam*flowWeeklyWater),
+      cleanUp = (vegWeek*0.2*vegWeeklyWater)+(flowWeek*0.2*flowWeeklyWater),
+      triologic = (vegWeek*(0.2*vegWeeklyWater))+(flowWeek*(0.2*flowWeeklyWater));
 
     let triologicMl = Math.ceil(triologic),
     leftTriologic = triologicMl,
@@ -99,35 +129,46 @@ document.querySelector(".input-fields").addEventListener("submit", (e) => {
     triologic2_5G = 0;
 
     while(leftTriologic > 0){
-      leftTriologic -= 500
-      triologic500++;
-      if(triologic500 === 7 && triologic1G != 2){
+      if(triologic1G === 0 && triologic2_5G===0){
+        leftTriologic -= 500
+        triologic500++;
+        if(triologic500 === 7){
+          triologic500 = 0;
+          triologic1G += 1;
+        }
+      }else if(triologic1G != 0 && triologic2_5G===0){
         triologic500 = 0;
+        leftTriologic -= 500*7;
         triologic1G += 1;
-      }else if(triologic500 === 7 && triologic1G == 2){
-        console.log(triologic500)
+        if(triologic1G > 2){
+          triologic500 = 0;
+          triologic1G = 0;
+          triologic2_5G++;
+        }
+      }else if(triologic2_5G!=0){
         triologic500 = 0;
         triologic1G = 0;
         triologic2_5G++;
+        leftTriologic -= 500*7*2.5;
       }
     }
 
 
       let partAGram = Math.ceil(partA),
-          partA5 = Math.ceil(Math.ceil(partA)/2267.96) % 5 === 0 ? 0 : Math.ceil(Math.ceil(partA)/2267.96)%5,
-          partA25 = Math.floor(Math.ceil(Math.ceil(partA)/2267.96) / 5)
+          partA5 = Math.ceil(partA)>2267.96*5 ? 0 : Math.ceil(Math.ceil(partA)/2267.96)%5,
+          partA25 = Math.ceil(partA)>2267.96*5 ? Math.ceil((Math.ceil(partA)/2267.96) / 5) : 0,
           partBGram= Math.ceil(partB),
-          partB5= Math.ceil(Math.ceil(partB)/2267.96) % 5 === 0 ? 0 : Math.ceil(Math.ceil(partB)/2267.96)%5,
-          partB25= Math.floor(Math.ceil(Math.ceil(partB)/2267.96) / 5),
+          partB5= Math.ceil(partB)>2267.96*5 ? 0 : Math.ceil(Math.ceil(partB)/2267.96)%5,
+          partB25= Math.ceil(partB)>2267.96*5 ? Math.ceil((Math.ceil(partB)/2267.96) / 5) : 0,
           bloomGram= Math.ceil(bloom),
-          bloom5= Math.ceil(Math.ceil(bloom)/2267.96) % 5 === 0 ? 0 : Math.ceil(Math.ceil(bloom)/2267.96)%5,
-          bloom25= Math.floor(Math.ceil(Math.ceil(bloom)/2267.96) / 5),
+          bloom5= Math.ceil(bloom)>2267.96*5 ? 0 : Math.ceil(Math.ceil(bloom)/2267.96)%5,
+          bloom25= Math.ceil(bloom)>2267.96*5 ? Math.ceil((Math.ceil(bloom)/2267.96) / 5):0,
           cleanUpGram= Math.ceil(cleanUp),
-          cleanUp5= Math.ceil(Math.ceil(cleanUp)/2267.96) % 5 === 0 ? 0 : Math.ceil(Math.ceil(cleanUp)/2267.96)%5,
-          cleanUp25= Math.floor(Math.ceil(Math.ceil(cleanUp)/2267.96) / 5),
+          cleanUp5= Math.ceil(cleanUp)>2267.96*5 ? 0 : Math.ceil(Math.ceil(cleanUp)/2267.96)%5,
+          cleanUp25= Math.ceil(cleanUp)>2267.96*5 ? Math.ceil((Math.ceil(cleanUp)/2267.96) / 5) : 0,
           frontRowSiMl= Math.ceil(frontRowSi),
-          frontRowSi1Q= Math.ceil(Math.ceil(frontRowSi)/946.353) % 4 === 0 ? 0 : Math.ceil(Math.ceil(frontRowSi)/946.353)%4,
-          frontRowSi1G= Math.floor(Math.ceil(Math.ceil(frontRowSi)/946.353) / 4),
+          frontRowSi1Q=  Math.ceil(frontRowSi)>946.353*4 ? 0 : Math.ceil(Math.ceil(frontRowSi)/2267.96)%5,
+          frontRowSi1G= Math.ceil(frontRowSi)>946.353*4 ? Math.ceil((Math.ceil(frontRowSi)/946.353) / 4) : 0;
           triologicMl= triologicMl,
           triologic500= triologic500,
           triologic1G=triologic1G,
